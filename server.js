@@ -6,7 +6,7 @@ const PORT = 3000;
 // Create a server
 const server = http.createServer((req, res) => {
   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello, Node.js Server without Express!");
+  res.end("Hello, Node.js!");
 });
 
 // Start the server
