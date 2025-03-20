@@ -1,15 +1,19 @@
+const { json } = require("express");
 const http = require("http");
-
-// Define the server port
 const PORT = 3000;
 
-// Create a server
+//Create Server
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello, Node.js!");
+  if (req.method == "GET") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ message: "Hello" }));
+  } else {
+    res.writeHead(404, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ error: "not found" }));
+  }
 });
 
-// Start the server
+//Start Server
 server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log("Running");
 });
